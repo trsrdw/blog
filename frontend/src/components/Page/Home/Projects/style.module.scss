@@ -1,0 +1,22 @@
+@use '@/styles/mixin' as *;
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-top: 4rem;
+
+    @include mobile {
+        gap: 1rem;
+        padding-top: 3rem;
+    }
+
+    h1 {
+        line-height: 1.25;
+
+        span {
+            color: $primary;
+        }
+    }
+}

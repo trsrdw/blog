@@ -1,0 +1,76 @@
+// FONT WEIGHTS
+$font-normal: 400;
+$font-semibold: 600;
+$font-bold: 700;
+
+// COLOR PRESETS
+$text-title: #333333;
+$text-body: #666666;
+$text-field: #B3B3B3;
+$text-disable: #CCCCCC;
+$text-white: #FFFFFF;
+
+$bg-black: #141414;
+$bg-white: #FFFFFF;
+$bg-light-grey: #FAFAFA;
+$bg-light-blue: #F8FBFC;
+
+$info-positive: #53C362;
+$info-warning: #F3CB66;
+$info-negative: #F81414;
+$info-disable: #F0F0F0;
+
+$lawn-green: #8AF62Bff;
+$green-yellow: #A0EA5Dff;
+$office-green: #2D7513ff;
+$black: #000000ff;
+
+// $primary: #D84040;
+// $secondary: #8E1616;
+
+$primary: #608BC1;
+$hover: #3E6AA0;
+$dark: #133E87;
+$accent: #F3F3E0;
+
+@mixin wide {
+    @media only screen and (min-width: 2560px) {
+        @content;
+    }
+}
+
+@mixin laptop_lg {
+    @media only screen and (max-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media only screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mobile_sm {
+    @media only screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin mobile_xs {
+    @media only screen and (max-width: 420px) {
+        @content;
+    }
+}

@@ -1,0 +1,324 @@
+@use '@/styles/mixin' as *;
+
+.hero {
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 5rem 0 3rem 0;
+    position: relative;
+
+    @include mobile {
+        padding: 3.5rem 0 2rem 0;
+    }
+
+    @include mobile_sm {
+        padding: 3rem 0 2rem 0;
+    }
+
+    .title {
+        display: flex;
+        gap: 4rem;
+
+        @include mobile {
+            gap: 2rem;
+            flex-direction: column;
+        }
+
+        @include mobile_sm {
+            gap: 1.5rem;
+        }
+
+        h1 {
+            font-size: 64px;
+            line-height: 48px;
+
+            @include mobile_sm {
+                font-size: 48px;
+            }
+
+            @include mobile_xs {
+                font-size: 36px;
+            }
+        }
+
+        h2 {
+            font-size: 28px;
+            line-height: 24px;
+            font-weight: 100;
+
+            @include mobile_sm {
+                font-size: 22px;
+            }
+
+            @include mobile_xs {
+                font-size: 18px;
+            }
+        }
+
+        .name {
+            display: flex;
+            flex-direction: column;
+            height: 90px;
+
+            @include mobile_sm {
+                height: 80px;
+            }
+
+            @include mobile_xs {
+                height: 72px;
+            }
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-left: 4px;
+            margin-top: -4px;
+
+            @include mobile_sm {
+                margin-top: -2px;
+            }
+
+            p {
+                color: $text-body;
+                font-size: 14px;
+                line-height: normal;
+
+                @include mobile_sm {
+                    font-size: 12px;
+                }
+
+                span {
+                    color: $text-white;
+                }
+            }
+        }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .25rem .5rem;
+            border-radius: 24px;
+
+            span {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+            }
+
+            p {
+                font-size: 12px;
+                line-height: normal;
+
+                @include mobile_sm {
+                    font-size: 10px;
+                }
+            }
+
+            &.positive {
+                background-color: rgba($info-positive, $alpha: 0.15);
+
+                span {
+                    background-color: $info-positive;
+                }
+            }
+
+            &.negative {
+                background-color: rgba($info-negative, $alpha: 0.15);
+
+                span {
+                    background-color: $info-negative;
+                }
+            }
+        }
+
+        svg {
+            height: 13px;
+            width: auto;
+
+            path {
+                fill: $primary;
+            }
+        }
+
+        .role {
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+
+            @include mobile {
+                flex-direction: row;
+                gap: .75rem;
+            }
+        }
+    }
+
+    .arrow {
+        display: flex;
+        position: absolute;
+        left: 0;
+        bottom: 2.5rem;
+        width: 120px;
+        height: 120px;
+        border-left: 7px solid $primary;
+        border-bottom: 7px solid $primary;
+
+        @include mobile {
+            width: 80px;
+            height: 80px;
+            border-left: 4px solid $primary;
+            border-bottom: 4px solid $primary;
+            bottom: 1.75rem;
+        }
+
+        @include mobile_sm {
+            width: 48px;
+            height: 48px;
+            border-left: 3px solid $primary;
+            border-bottom: 3px solid $primary;
+        }
+
+        span {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: calc(100% + 120px);
+            height: 0;
+            border-top: 7px solid $primary;
+            transform-origin: bottom left;
+            transform: rotate(-45deg);
+
+            @include mobile {
+                border-top: 4px solid $primary;
+                bottom: -3px;
+                width: calc(100% + 80px);
+            }
+
+            @include mobile_sm {
+                border-top: 3px solid $primary;
+                bottom: -2px;
+                width: calc(100% + 30px);
+            }
+        }
+    }
+
+    .accent {
+        display: none;
+        position: relative;
+
+        @include tablet {
+            position: relative;
+            width: calc(100% + 4rem);
+            margin-inline: -2rem;
+            height: 60vh;
+            display: flex;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        @include mobile {
+            width: calc(100% + 2rem);
+            margin-inline: -1rem;
+        }
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @include tablet {
+            gap: 1rem;
+        }
+
+        @include mobile {
+            gap: 2rem;
+        }
+
+        li {
+            position: relative;
+            width: fit-content;
+            gap: 1rem;
+            cursor: pointer;
+
+            .line {
+                position: absolute;
+                top: 60%;
+                right: 0;
+                transform: translateY(-60%);
+                width: 0;
+                height: 2px;
+                background-color: $primary;
+                transition: width 0.3s ease;
+            }
+
+            .link {
+                color: $primary;
+                margin-right: 0;
+                width: fit-content;
+                position: relative;
+                font-size: clamp(28px, 12vw, 130px);
+                line-height: 1.1;
+                font-weight: 300;
+                letter-spacing: clamp(1px, 0.5vw, 8px);
+                transition: 0.3s ease;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+
+                @include wide {
+                    font-size: 160px;
+                    line-height: 1.25;
+                }
+
+                span {
+                    @include tablet {
+                        display: none;
+                    }
+                }
+            }
+
+            &:hover {
+                .line {
+                    width: 60px;
+
+                    @include mobile {
+                        width: 30px;
+                    }
+
+                    @include mobile_sm {
+                        width: 20px;
+                    }
+                }
+
+                .link {
+                    margin-right: 84px;
+
+                    @include mobile {
+                        margin-right: 46px;
+                    }
+
+                    @include mobile_sm {
+                        margin-right: 28px;
+                    }
+                }
+            }
+        }
+    }
+}

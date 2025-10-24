@@ -1,0 +1,75 @@
+@use '@/styles/mixin' as *;
+
+.notfound {
+    height: 100%;
+    background-image:
+        linear-gradient(to bottom, rgba(20, 20, 20, 0) 60%, rgba(20, 20, 20, 1) 100%),
+        url("/notfound.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: flex-end;
+    padding: 3rem;
+    gap: 2rem;
+
+    @include tablet {
+        background-image: none;
+        justify-content: center;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        h1 {
+            text-shadow:
+                0 0 8px rgba(0, 255, 170, 0.6),
+                0 0 16px rgba(0, 255, 170, 0.4);
+        }
+    }
+}
+
+.primary {
+    width: fit-content;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    color: black;
+    background: linear-gradient(135deg, #a0ff00, #38f000);
+    border: 2px solid black;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 0 #000, 0 4px 10px rgba(56, 240, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 0 #000, 0 6px 15px rgba(56, 240, 0, 0.7);
+    }
+
+    &:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 0 #000, 0 2px 8px rgba(56, 240, 0, 0.5);
+    }
+
+    &.glow {
+        animation: glow 1.5s infinite;
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 10px rgba(56, 240, 0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(56, 240, 0, 0.8);
+    }
+}

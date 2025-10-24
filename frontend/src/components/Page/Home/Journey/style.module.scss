@@ -1,0 +1,137 @@
+@use '@/styles/mixin' as *;
+
+.journey {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    padding-top: 4rem;
+
+    @include mobile {
+        gap: 1rem;
+        padding-top: 3rem;
+    }
+
+    h1 {
+        line-height: 1.25;
+
+        span {
+            color: $primary;
+        }
+    }
+}
+
+.path {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include mobile {
+        gap: 1rem;
+    }
+
+    .year {
+        border: 1px solid #222222;
+        background-color: #1a1a1a;
+        text-align: center;
+        font-weight: 300;
+        padding: .5rem;
+        // box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .step {
+        width: 100%;
+        border: 1px solid #222222;
+        border-top: none;
+        padding: 1rem;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        span {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+
+            @include mobile_sm {
+                gap: 3rem;
+            }
+
+            @include mobile_xs {
+                gap: 2rem;
+            }
+
+            p {
+                width: 100%;
+                max-width: 240px;
+
+                // @include mobile_sm {
+                //     max-width: 140px;
+                // }
+
+                &.title {
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 1.25;
+
+                    @include tablet {
+                        font-size: 18px;
+                    }
+
+                    @include mobile {
+                        font-size: 14px;
+                    }
+                }
+
+                &.middle {
+                    color: $text-body;
+                    text-align: center;
+                    max-width: unset;
+                    line-height: 1.25;
+                }
+
+                &.period {
+                    color: $text-body;
+                    text-align: right;
+                    line-height: 1.25;
+                }
+            }
+        }
+    }
+}
+
+.more {
+    cursor: pointer;
+    align-self: center;
+    background-color: $hover;
+    color: $text-white;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+
+    @include tablet {
+        font-size: 12px;
+        padding: .75rem;
+        width: 100%;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        background-color: $primary;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+        @include tablet {
+            transform: translateY(0);
+            background-color: $hover;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
