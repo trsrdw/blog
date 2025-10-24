@@ -22,8 +22,8 @@ const isProd = process.env.NODE_ENV === "production";
 const baseUrl = isProd ? "https://tiarasdewi.com" : "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "Tiara S. Dewi - Frontend Developer",
-  description: "Portfolio of Tiara S. Dewi, a Frontend Developer specializing in React and Next.js.",
+  title: "Blog - Tiara S. Dewi",
+  description: "A personal blog by Tiara S. Dewi, sharing thoughts, life experiences, stories, and occasional tech insights.",
   robots: "index, follow",
   icons: {
     icon: "/logo/logo-icon.png",
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Tiara S. Dewi - Frontend Developer",
-    description: "Portfolio of Tiara S. Dewi, a Frontend Developer specializing in React and Next.js.",
+    title: "Blog - Tiara S. Dewi",
+    description: "A personal blog by Tiara S. Dewi, sharing thoughts, life experiences, stories, and occasional tech insights.",
     url: baseUrl,
-    siteName: "Tiara S. Dewi Portfolio",
+    siteName: "Blog - Tiara S. Dewi",
     images: [
       {
         url: (baseUrl) + "/profile-meta.jpg",
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tiara S. Dewi - Frontend Developer",
-    description: "Portfolio of Tiara S. Dewi, a Frontend Developer specializing in React and Next.js.",
+    title: "Blog - Tiara S. Dewi",
+    description: "A personal blog by Tiara S. Dewi, sharing thoughts, life experiences, stories, and occasional tech insights.",
     images: [(baseUrl) + "/profile-meta.jpg",],
   },
 };

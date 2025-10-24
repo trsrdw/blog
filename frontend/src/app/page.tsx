@@ -1,39 +1,27 @@
 import Container from "@/components/Layout/Container/container";
+import { Loader } from "@/components/Layout/Loader/loader";
 import HeroSection from "@/components/Page/Home/Hero/hero";
-import AboutSection from "@/components/Page/Home/About/about";
-import JourneySection from "@/components/Page/Home/Journey/journey";
-import ProjectsSection from "@/components/Page/Home/Projects/projects";
-import FormSection from "@/components/Page/Home/Form/form";
-import ResumeSection from "@/components/Page/Home/Resume/resume";
-// import BlogSection from "@/components/Page/Home/Blog/blog";
+import { getPosts } from "@/lib/api/fetch";
+import { Post, PostsResponse } from "@/lib/types/data";
+import { Suspense } from "react";
 
 export default async function Page() {
+    const lang = "en";
+    let posts: PostsResponse<Post[]>;
+    try {
+        posts = await getPosts(lang);
+    } catch (error) {
+        console.error("Failed to fetch posts:", error);
+        throw new Error("Missing data from server");
+    }
+    // console.log("Posts data:", posts.data);
     return (
-        <main className="homecontent">
-            <Container>
-                <HeroSection />
-            </Container>
-            <Container>
-                <AboutSection />
-            </Container>
-            <Container>
-                <JourneySection />
-            </Container>
-            {/* <Container>
-                <CertificationSection />
-            </Container> */}
-            <Container>
-                <ProjectsSection />
-            </Container>
-            {/* <Container>
-                <BlogSection />
-            </Container> */}
-            <Container>
-                <ResumeSection />
-            </Container>
-            <Container>
-                <FormSection />
-            </Container>
-        </main>
+        <Suspense fallback={<Loader />}>
+            <main className="homecontent">
+                <Container>
+                    <HeroSection data={posts.data} />
+                </Container>
+            </main>
+        </Suspense>
     );
 }

@@ -1,0 +1,139 @@
+@use '@/styles/mixin' as *;
+
+.article {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    a {
+        color: $blue-GF;
+
+        &:hover {
+            color: $hover-blue-GF;
+            transition: 150ms ease-in-out;
+        }
+    }
+
+    ul {
+        padding-left: 2rem;
+        list-style-type: disc;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    ol {
+        padding-left: 2rem;
+        list-style-type: decimal;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    li {
+        padding-left: 0.5rem;
+    }
+
+    p {
+        font-size: $font-md;
+        line-height: 32px;
+    }
+
+    figure {
+        margin: 0 0 0.5rem;
+    }
+
+    .photo {
+        height: 400px;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        position: relative;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        &.collab {
+            height: auto;
+            max-height: 400px;
+            width: auto;
+            max-width: 100%;
+            display: inline-block;
+
+            img {
+                height: auto;
+                max-height: 400px;
+                width: auto;
+                max-width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .quote {
+        border-left: 4px solid $text-disable;
+        margin: 1rem 0;
+        padding-left: 1rem;
+        font-style: italic;
+        color: $text-body;
+    }
+}
+
+.instagram-media {
+    max-width: 100%;
+    margin: 2rem auto !important;
+}
+
+@include tablet {
+    .article {
+        .photo {
+            height: 320px;
+
+            &.collab {
+                max-height: 320px;
+
+                img {
+                    max-height: 320px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    .article {
+        .photo {
+            height: 240px;
+
+            &.collab {
+                max-height: 240px;
+
+                img {
+                    max-height: 240px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile_sm {
+    .article {
+        .photo {
+            height: 184px;
+
+            &.collab {
+                max-height: 184px;
+
+                img {
+                    max-height: 184px;
+                }
+            }
+        }
+    }
+}
