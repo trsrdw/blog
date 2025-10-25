@@ -7,7 +7,7 @@ import {
 } from "@strapi/blocks-react-renderer";
 import Image from "next/image";
 import Link from "next/link";
-import style from "./renderer.module.scss";
+import style from "./style.module.scss";
 import Typography from "../Typography/typography";
 
 interface PostRendererProps {

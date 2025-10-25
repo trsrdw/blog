@@ -46,7 +46,15 @@ export async function getPosts(lang: string): Promise<PostsResponse<Post[]>> {
 
     const query = qs.stringify({
         locale: lang,
-        populate: true,
+        populate: {
+            banner: {
+                fields: ["url", "alternativeText", "name", "height", "width"],
+            },
+            categories: {
+                populate: true,
+            }
+        },
+        sort: ["createdAt:desc"],
     });
 
     const url = new URL(path, baseUrl);

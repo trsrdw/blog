@@ -83,6 +83,15 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "posts"
+    },
+    "featured": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": false
     }
   }
 }

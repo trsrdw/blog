@@ -14,8 +14,12 @@
 
 .h3 {
     font-size: 24px;
-    line-height: 40px;
-    font-weight: $font-bold;
+    line-height: 1.5;
+    font-weight: 300;
+
+    @include tablet {
+        font-size: 20px;
+    }
 }
 
 .h4 {
@@ -38,5 +42,5 @@
 
 .p {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 1.5;
 }

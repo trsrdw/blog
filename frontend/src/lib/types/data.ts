@@ -1,3 +1,5 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
 export interface LoaderProps {
     item?: boolean;
 }
@@ -5,6 +7,12 @@ export interface LoaderProps {
 export interface ErrorProps {
     msg?: string;
     reset?: () => void;
+}
+
+export interface PageProps {
+    params: {
+        slug: string;
+    };
 }
 
 export type Section = {
@@ -17,6 +25,22 @@ export interface PostsResponse<T> {
     meta: unknown;
 }
 
+export interface Media {
+    url: string;
+    alternativeText?: string | null;
+    name?: string;
+    width?: number;
+    height?: number;
+}
+
+export interface Category {
+    title: string;
+    description: string;
+}
+
+export interface Categories {
+    data: Category[];
+}
 
 export interface Post {
     id: number;
@@ -24,9 +48,13 @@ export interface Post {
     title: string;
     excerpt: string;
     slug: string;
+    banner?: Media | null;
+    body: BlocksContent;
     writer: string;
     locale: string;
+    categories: Category[];
     reference: string | null;
+    featured: boolean;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
@@ -34,4 +62,9 @@ export interface Post {
 
 export interface DataProps {
     data: Post[];
+}
+
+export interface PostPage {
+    data: Post;
+    related: Post[];
 }
