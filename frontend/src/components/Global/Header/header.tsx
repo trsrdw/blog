@@ -16,29 +16,13 @@ export default function Header() {
 
     const isTablet = useIsTablet();
     const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
 
     return (
-        <nav className={`${style.navbar} ${isScrolled ? style.colored : ""} ${isOpen ? style.menu : ""}`}>
+        <nav className={`${style.navbar} ${isOpen ? style.menu : ""}`}>
             <Link href={"/"} className={`${style.logo} logo`}>
                 <Image src={"/logo/logo-white.png"} alt="Logo" width={24} height={24} priority />
                 <span>blog.tiara</span>

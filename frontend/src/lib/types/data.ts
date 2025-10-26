@@ -68,3 +68,9 @@ export interface PostPage {
     data: Post;
     related: Post[];
 }
+
+export interface Contact {
+    label: string;
+    logo: string;
+    link: string;
+}
