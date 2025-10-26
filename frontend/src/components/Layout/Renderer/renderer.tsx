@@ -80,8 +80,8 @@ const PostRenderer: FC<PostRendererProps> = ({
                         <Image
                             src={image.url}
                             alt={image.alternativeText || "Image"}
-                            height={image.height}
-                            width={image.width}
+                            fill
+                            sizes="90%"
                         />
                     </div>
                     {image.caption && (

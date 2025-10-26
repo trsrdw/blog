@@ -62,6 +62,7 @@ export interface Post {
 
 export interface DataProps {
     data: Post[];
+    categories?: Category[];
 }
 
 export interface PostPage {
@@ -73,4 +74,19 @@ export interface Contact {
     label: string;
     logo: string;
     link: string;
+}
+
+export interface CategoriesResponse<T> {
+    data: T;
+    meta: unknown;
+}
+
+export interface Category {
+    id: number;
+    documentId: string;
+    title: string;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
 }

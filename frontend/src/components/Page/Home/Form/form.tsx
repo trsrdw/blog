@@ -77,9 +77,10 @@ export default function FormSection() {
 
     return (
         <div id="form" className={style.contact}>
-            <h1>
-                <span>Contact</span> Me
-            </h1>
+            <div className={style.heading}>
+                <h1>Subscribe blog for latest updates</h1>
+                <p>By submitting this you will be receiving our latest updates on post.</p>
+            </div>
 
             <motion.form
                 className={style.form}

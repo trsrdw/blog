@@ -22,7 +22,8 @@ export default function HeroSection({ data = [] }: DataProps) {
                         src={getStrapiMedia(featuredPost.banner?.url) || "/placeholder.png"}
                         alt={featuredPost.title}
                         fill
-                        sizes="100vw"
+                        sizes="100%"
+                        priority
                     />
                     <div className={style.summary}>
                         <div className={style.category}>
@@ -50,7 +51,8 @@ export default function HeroSection({ data = [] }: DataProps) {
                             src={getStrapiMedia(post.banner?.url) || "/placeholder.png"}
                             alt={post.title}
                             fill
-                            sizes="100vw"
+                            sizes="100%"
+                            priority
                         />
                         <div className={style.summary}>
                             <div className={style.category}>

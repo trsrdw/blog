@@ -1,7 +1,6 @@
 "use client";
 import { contacts } from "@/lib/helper/list";
 import style from "./style.module.scss";
-import Image from "next/image";
 import SvgIcon from "@/lib/utils/svg";
 import Link from "next/link";
 

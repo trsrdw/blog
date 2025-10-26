@@ -1,6 +1,6 @@
 import qs from "qs";
 import { flattenAttributes, getStrapiURL } from "../utils/general";
-import { Post, PostsResponse } from "../types/data";
+import { CategoriesResponse, Category, Post, PostsResponse } from "../types/data";
 
 type FetchOptions = {
     authToken?: string;
@@ -63,6 +63,30 @@ export async function getPosts(lang: string): Promise<PostsResponse<Post[]>> {
     try {
         const data = fetchData<PostsResponse<Post[]>>(url.href);
         // console.log("📦 Posts data:", data);
+        return data;
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(`Failed to fetch posts data:`, error.message);
+        }
+        throw error;
+    }
+}
+
+export async function getCategories(lang: string): Promise<CategoriesResponse<Category[]>> {
+    const path = "/api/categories";
+    const baseUrl = getStrapiURL();
+
+    const query = qs.stringify({
+        locale: lang,
+        populate: true,
+    });
+
+    const url = new URL(path, baseUrl);
+    url.search = query;
+
+    try {
+        const data = fetchData<CategoriesResponse<Category[]>>(url.href);
+        // console.log("📦 Categories data:", data);
         return data;
     } catch (error) {
         if (error instanceof Error) {

@@ -1,26 +1,14 @@
 @use "@/styles/mixin.scss" as *;
 
 .container {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    // padding: 6rem 0 1rem 0;
-    // min-height: calc(100vh - 64px);
-    // min-height: calc(100dvh - 64px);
+    min-height: calc(100vh - 72px);
+    min-height: calc(100dvh - 72px);
 
-    // @include laptop {
-    //     padding: 6rem 2.5rem 1rem 2.5rem;
-    // }
-
-    // @include tablet {
-    //     min-height: calc(100vh - 56px);
-    //     min-height: calc(100dvh - 56px);
-    // }
-
-    // @include mobile {
-    //     padding: 5rem 1rem 2rem 1rem;
-    // }
+    @include mobile {
+        min-height: calc(100vh - 77px);
+        min-height: calc(100dvh - 77px);
+    }
 }

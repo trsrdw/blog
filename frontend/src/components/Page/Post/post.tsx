@@ -5,10 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PostRenderer from "@/components/Layout/Renderer/renderer";
 import { PostPage } from "@/lib/types/data";
 import style from "./style.module.scss";
-import { formatDate, getStrapiMedia, truncateWords } from "@/lib/utils/general";
+import { formatDate, getStrapiMedia, truncate } from "@/lib/utils/general";
 import Image from "next/image";
 import Link from "next/link";
-import { useIsTablet } from "@/lib/utils/mediaquery";
+import { useIsMobile, useIsTablet } from "@/lib/utils/mediaquery";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +16,7 @@ export default function SinglePost({ data, related }: PostPage) {
     const stickyRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const isTablet = useIsTablet();
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const sticky = stickyRef.current;
@@ -51,9 +52,15 @@ export default function SinglePost({ data, related }: PostPage) {
                         src={getStrapiMedia(data.banner?.url) || "/placeholder.png"}
                         alt={data.title}
                         fill
-                        sizes="100vw"
+                        sizes="100%"
+                        priority
                     />
                     <div className={style.header}>
+                        <div className={style.label}>
+                            {data.categories.map((cat) => (
+                                <label key={cat.id}>{cat.title}</label>
+                            ))}
+                        </div>
                         <h1>{data.title}</h1>
                         <div className={style.info}>
                             <p>{formatDate(data.createdAt, "en")}</p>
@@ -86,12 +93,12 @@ export default function SinglePost({ data, related }: PostPage) {
                                         src={getStrapiMedia(item.banner?.url) || "/placeholder.png"}
                                         alt={item.title}
                                         fill
-                                        sizes="100vw"
+                                        sizes="50%"
                                     />
                                 </div>
                                 <div className={style.summary}>
                                     <h3>{item.title}</h3>
-                                    <p>{truncateWords(item.excerpt, 10)}</p>
+                                    <p>{truncate(item.excerpt, (isMobile ? 90 : (isTablet ? 60 : 80)))}</p>
                                     <Link href={item.slug}>Read More</Link>
                                 </div>
                             </div>

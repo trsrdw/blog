@@ -1,8 +1,10 @@
 import Container from "@/components/Layout/Container/container";
+import { Loader } from "@/components/Layout/Loader/loader";
 import SinglePost from "@/components/Page/Post/post";
 import { getPosts } from "@/lib/api/fetch";
 import { Post, PostsResponse } from "@/lib/types/data";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 export default async function Page({ params }: PageProps<'/posts/[slug]'>) {
     const slug = (await params).slug;
@@ -25,8 +27,10 @@ export default async function Page({ params }: PageProps<'/posts/[slug]'>) {
     }
     // console.log("SSR: ", post)
     return (
-        <Container>
-            <SinglePost data={post} related={relatedPosts} />
-        </Container>
+        <Suspense fallback={<Loader />}>
+            <Container>
+                <SinglePost data={post} related={relatedPosts} />
+            </Container>
+        </Suspense>
     );
 }

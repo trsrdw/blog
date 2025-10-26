@@ -148,7 +148,7 @@ a {
   color: $primary;
   text-decoration: none;
   font-size: 16px;
-  line-height: 32px;
+  line-height: 1.5;
   font-weight: $font-semibold;
   transition: color 150ms ease-in-out;
 
@@ -170,16 +170,16 @@ a {
   display: grid;
   gap: 3rem;
   padding-inline: 2rem;
-  padding-bottom: 3rem;
+  // padding-bottom: 3rem;
 
   @include tablet {
-    padding-bottom: 2rem;
+    // padding-bottom: 2rem;
     gap: 1.5rem;
   }
 
   @include mobile {
     padding-inline: 1rem;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
     gap: 1rem;
   }
 }
