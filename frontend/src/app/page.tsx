@@ -1,6 +1,6 @@
 import Container from "@/components/Layout/Container/container";
 import { Loader } from "@/components/Layout/Loader/loader";
-import FormSection from "@/components/Page/Home/Form/form";
+// import FormSection from "@/components/Page/Home/Form/form";
 import HeroSection from "@/components/Page/Home/Hero/hero";
 import { getPosts } from "@/lib/api/fetch";
 import { Post } from "@/lib/types/data";
@@ -30,9 +30,9 @@ export default async function Page() {
                 <Container>
                     <HeroSection data={recentPosts} />
                 </Container>
-                <Container>
+                {/* <Container>
                     <FormSection />
-                </Container>
+                </Container> */}
             </main>
         </Suspense>
     );

@@ -29,9 +29,13 @@
 }
 
 .h5 {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
-    font-weight: $font-bold;
+    font-weight: 400;
+
+    @include mobile {
+        font-size: 13px;
+    }
 }
 
 .h6 {
